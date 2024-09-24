@@ -1,0 +1,371 @@
+@import url('https://fonts.cdnfonts.com/css/kelsi');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.overlay-text {
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+/* 헬로 난 붕 */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.overlay-text p {
+  line-height: 1; /* p 요소의 행간을 줄임 */
+  font-size: 85%;
+  color: #ffe3f2;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-family: "Gugi", sans-serif;
+}
+
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.blur {
+  transition: filter 0.4s;
+  filter: blur(5px);
+}
+
+button:hover {
+  background-color: #e6e6e6; /* 호버 시 배경 색상 */
+  color: #fff; /* 호버 시 텍스트 색상 */  
+}
+
+button:hover {
+  animation: colorChange 0.7s infinite alternate; /* 호버 시 애니메이션 활성화 */
+}
+
+@keyframes colorChange {
+  100% {
+      background-color: #30303060;
+      color: #ffffff;
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 스크롤바 숨김 */
+}
+* {
+  touch-action: manipulation;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px;
+  margin-left: -10px;
+  color: #fff;
+  z-index: 10000; /* z-index 값을 더 높게 설정 */
+}
+
+/* Style for the logo */
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: -0.3px; /* 자간 */
+  font-family: 'Kelsi', sans-serif;
+  text-shadow: 0 0 14px rgba(0, 0, 0, 0.261);
+}
+
+/* Style for the links */
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 19px;
+  letter-spacing: -1px; /* 자간 */
+  font-weight: 400; /* A두께make it thin */
+}
+
+.overlay-text h1 {
+  margin: 0; /* Remove default margin */
+  line-height: 1; /* Decrease line height */
+  opacity: 0.8; /* Adjust opacity */
+  letter-spacing: -4px; /* 자간 */
+  font-weight: 1; /* 글꼴의 두께를 조절합니다 */
+  font-size: 290%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#c {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.loading {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #c3a7b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  -webkit-perspective: 120px;
+  -moz-perspective: 120px;
+  -ms-perspective: 120px;
+  perspective: 120px;
+  width: 100px;
+  height: 100px;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffffff37;
+  animation: flip 1s infinite;
+}
+
+@keyframes flip {
+  0% {
+      transform: rotate(0);
+  }
+  50% {
+      transform: rotateY(180deg);
+  }
+  100% {
+      transform: rotateY(180deg) rotateX(180deg);
+  }
+}
+
+.page-section {
+  width: 100%;
+  height: 100vh; /* 섹션을 전체 화면 높이로 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #25252B;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  scroll-snap-align: start; /* 섹션의 시작을 기준으로 스크롤 정렬 */
+}
+
+
+
+/* Section specific styling */
+#section-1 {
+  background-color: #ffd2eb; 
+}
+
+#section-3 {
+  background-color: #d0dddb;
+}
+
+/* Add this to your 3d.css file or inside a <style> tag in your HTML file */
+
+/* Style for the video in section 3 to ensure it fits the container properly */
+#section-3 video {
+  width: 105%; /* Make the video fill the width of its container */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Ensure the video covers the entire area, while maintaining its aspect ratio */
+}
+
+
+/* Optional: Smooth scroll effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* .hidden {
+  visibility: hidden;
+} */
+.text-grey {
+  color: #888;
+}
+
+/*contai대화상자ner*/
+.container {
+  position: fixed;
+  width: 50%;
+  height: 369px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 15vh auto 18px;
+  box-shadow: 0 0 14px rgba(0,0,0,.15);
+  z-index: 10000; /* Ensure container is on top */
+  top: 33%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to the center */
+  display: flex;
+  flex-direction: column;}
+
+/*keterangan*/
+
+.hasil p {
+  text-transform: lowercase;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 240px;
+}
+
+/* Hasil */
+.hasil {
+  height: 230px;
+  width: auto;
+}
+
+/* Fight */
+.fight {
+  height: 90px;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.416); /* Transparent white background */
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  backdrop-filter: blur(4px); /* Blur effect */
+  margin-top: auto; /* Pushes .fight to the bottom of the container */
+}
+
+.blurred {
+  backdrop-filter: blur(10px); /* 블러 효과 추가 */
+}
+
+
+.vs p {
+  line-height: 98px;
+  color: rgb(35, 11, 11);
+}
+p.ket {
+  font-size: .8em;
+  color: #666;
+}
+.pilihan-player button {
+  width: 164px;
+  height: 48px;
+  margin: 16px 4px;
+  margin-top: 20px; /* 버튼마진 */
+  border: none;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.pilihan-player button p {
+  line-height: 18px;
+  font-size: 14px; /* 버튼 내 텍스트 크기 조정 */
+}
+
+/*main lagi*/
+.main-lagi {
+  text-align: center;
+  margin: 2px auto;
+  display: block;
+  width: 240px;
+  height: 56px;
+  border-radius: 16px;
+  border: none;
+  margin-top: -68px;
+  box-shadow: 0 0 14px rgba(0,0,0,.12);
+}
+
+/*MEDIA QUERY*/
+@media only screen and (max-width: 600px) {
+  .container,
+  .pilihan-player {
+      width: 320px;
+  }
+  .memilih {
+      width: 120px;
+  }
+  /* .fight {
+      height: 148px;
+      width: 100%;
+  } */
+  .vs p {
+      line-height: 148px;
+  }
+  .hasil {
+      height: 160px;
+      width: auto;
+  }
+  .hasil p {
+      font-size: 1rem;
+      text-align: center;
+      line-height: 148px;
+  }
+  .pilihan-player button {
+      width: 120px;
+      height: 48px;
+  }
+  .main-lagi {
+      width: 164px; 
+      height: 48px;
+  }
+}
+
+
+
+#section-2 {
+  position: relative;
+  height: 100vh;
+  background-color: #444; /* 명확한 배경색 설정 */
+  overflow: hidden;
+}
+
+#section-2 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* 비디오가 다른 콘텐츠 위에 있도록 설정 */
+}
+
+

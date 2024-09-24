@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="3d.css">
+    <link href="https://fonts.cdnfonts.com/css/kelsi" rel="stylesheet">
+    <title>Doong's Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">
+            <div class="logo" id="doong-logo">Doong</div>
+        </a>
+        <div>
+            <a href="https://www.instagram.com/doong_ff/" id="about-link" target="_blank">
+                <img src="img/insta.png" alt="" style="width: 35px; height: auto; opacity: 0.8;"/>
+            </a>
+            
+                    </div>
+    </nav>
+
+    <!-- Loading overlay -->
+    <div class="loading" id="js-loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main content wrapper -->
+    <div class="wrapper">
+        <canvas id="c"></canvas>
+        <div class="overlay-text" id="overlay-text">
+            <p>Hello? I'm Doong! Want to come play with me?</p>
+        </div>
+    </div>
+
+    <!-- Sections -->
+    <section class="page-section" id="section-1"></section>
+
+    <section class="page-section" id="section-2">
+        <video autoplay muted loop>
+            <source src="img/Sequence 01.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <section class="page-section" id="section-3">
+        <video autoplay muted loop>
+            <source src="img/alll.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <!-- Interactive elements -->
+    <div class="container">
+        <!-- Result display with background blur -->
+        <div class="hasil background-blur">
+            <p></p>
+        </div>
+        <!-- Fight section with hidden options and background blur -->
+        <div class="fight">
+            <div class="komputer">
+                <p class="ket"></p>
+            </div>
+            <div class="pilihan-player hidden background-blur">
+                <button class="batu">
+                    <p>Yes</p>
+                </button>
+            </div>
+            <div class="kamu">
+                <p class="ket"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="3d.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let sections = document.querySelectorAll(".page-section");
+            let overlayText = document.getElementById("overlay-text");
+            let currentSectionIndex = 0;
+            let isAnimating = false;
+
+            function scrollToSection(index) {
+                if (index >= 0 && index < sections.length && !isAnimating) {
+                    isAnimating = true;
+                    sections[index].scrollIntoView({ behavior: "smooth" });
+
+                    setTimeout(() => {
+                        isAnimating = false;
+                        currentSectionIndex = index;
+                        updateOverlayText();
+                    }, 1000); // Duration of the scroll animation
+                }
+            }
+
+            function updateOverlayText() {
+                let text;
+                switch (currentSectionIndex) {
+                    case 0:
+                      //  text = "Hello? I'm Doong! Do you want to be friends with me?";
+                      text = "안녕, 나는 둥이야. 나랑 친구할래?";
+
+                        break;
+                    case 1:
+                      //  text = "I’m like a fun chameleon, always changing to fit the adventure! Think of me as a shape-shifting friend with a new look every day!";
+                      text = "나는 상황에 맞게 변화하는 재미있는 카멜레온과 같아! 나를 변신하는 친구라고 생각해줘.";  
+                      break;
+                    case 2:
+                        text = "지금 만나러 갈래?";
+                        break;
+                    case 3:
+                        text = "You've reached the fourth section!";
+                        break;
+
+                    default:
+                        text = "Hello? I'm Doong! Want to come play with me?";
+                }
+                overlayText.querySelector("p").textContent = text;
+            }
+
+            window.addEventListener("wheel", (e) => {
+                if (e.deltaY > 0) {
+                    scrollToSection(currentSectionIndex + 1);
+                } else {
+                    scrollToSection(currentSectionIndex - 1);
+                }
+            });
+
+            document.querySelector(".fight .batu").addEventListener("click", () => {
+                if (currentSectionIndex === 2) {
+                    window.location.href = "pick.html";
+                } else {
+                    scrollToSection(currentSectionIndex + 1); // Scroll to the next section
+                }
+            });
+
+            // Set initial text
+            updateOverlayText();
+        });
+    </script>
+</body>
+</html>
